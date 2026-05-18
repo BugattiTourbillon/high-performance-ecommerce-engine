@@ -1,0 +1,6 @@
+﻿Req,Requirement,Exact File & Line,Implementation Proof
+1,Concurrent Access & Data Integrity,ProductRepository.java:47-49<br>CheckoutService.java:61<br>CartService.java:117,@Lock(PESSIMISTIC_WRITE) + findByIdForUpdate()<br>.sorted(Comparator.comparing(...getId())) before locking
+2,Resource Management & Capacity Control,"application.yml:13,16"<br>AsyncConfig.java:28<br>PaymentGatewaySimulator.java:27,HikariCP maximum-pool-size: 50", "connection-timeout: 10000<br>CallerRunsPolicy backpressure<br>Fair Semaphore guarding payment calls
+3,Asynchronous Queues,OrderAutomationService.java:31-33,"@Async(""commerceTaskExecutor"")" + @TransactionalEventListener(phase = AFTER_COMMIT)
+4,Batch Processing,BatchConfig.java:67<br>BatchConfig.java:76-88<br>SpringBatchJobService.java:19,".chunk(50, transactionManager)"<br>JpaPagingItemReader paging config<br>JobLauncher wired for admin trigger
+5,Load Distribution,deploy/nginx/nginx.conf:6-9<br>"application.yml:36-37,60",upstream + least_conn; routing to app1:8080 & app2:8080<br>Stateless via JWT + shared Redis cache

@@ -1,0 +1,5 @@
+scenario,url,requests,concurrency,success,failures,error_rate_pct,throughput_rps,avg_ms,p50_ms,p95_ms,max_ms
+before_raw_catalog,http://localhost:8088/api/benchmark/products/raw?page=0&size=20,240,40,240,0,0.0,180.73,199.38,174.68,375.71,716.3
+after_cached_catalog,http://localhost:8088/api/products?page=0&size=20,240,40,240,0,0.0,341.99,105.77,84.22,229.99,337.39
+before_raw_popular,http://localhost:8088/api/benchmark/products/popular/raw,240,40,240,0,0.0,351.05,108.24,94.79,190.39,350.14
+after_cached_popular,http://localhost:8088/api/products/popular,240,40,240,0,0.0,424.39,89.37,83.98,168.87,273.61
