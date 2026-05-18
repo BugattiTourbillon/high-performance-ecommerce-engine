@@ -1,0 +1,11 @@
+/target/
+/generated/
+/.idea/
+*.iml
+*.log
+.DS_Store
+src/**/.DS_Store
+tmp/
+Screenshots/
+**/.DS_Store
+__MACOSX/
